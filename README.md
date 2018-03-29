@@ -1,23 +1,23 @@
 # Hotelomatic
 
-This a basic crud react-redux-featherjs application for managing guest check-ins. It currently uses neDB for the database and FeathersJS for the REST API server. 
+This a basic crud react-redux-featherjs application for managing guest check-ins. It currently uses NeDB for the database and FeathersJS for the REST API server. 
 
 ##  How to install
 
 ```bash
-git clone git@github.com:batrinu/hotelomatic.git
+git clone git@github.com:batrinu/Hotelomatic.git
 cd hotelomatic
 
 # Install client dependencies
 cd client
 npm install
-or
+# or
 yarn
 
 # Install server dependencies
 cd server
 npm install
-or
+# or
 yarn
 ```
 
@@ -27,6 +27,7 @@ Ensure you have node installed on your system
 ```bash
 node -v
 npm -v
+# or
 yarn -v
 ```
 
@@ -36,7 +37,7 @@ Start the backend server first:
 ```bash
 cd hotelomatic/server
 npm start
-or
+# or
 yarn start
 ```
 This will run the backend server at localhost:3030. If all is working well, you should be able to access the url http://localhost:3030 from your Browser or Postman
@@ -47,7 +48,7 @@ Open a separate terminal to start the client:
 ```bash
 cd hotelomatic/client
 npm start
-or
+# or
 yarn start
 ```
 
