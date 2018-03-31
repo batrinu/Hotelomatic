@@ -54,3 +54,12 @@ yarn start
 
 Your default web browser will be launched automatically with the url http://localhost:3000
 
+### Create a staff member account
+
+Open a terminal and run:
+
+```bash
+curl 'http://localhost:3030/users/' -H 'Content-Type: application/json' --data-binary '{ "email": "staff@hotelomatic.com", "password": "admin1234", "userType": "staff" }'
+```
+After singing in with the staff account you will be redirected to the staff area page
+
