@@ -1,6 +1,6 @@
 # server
 
-> REST API server
+> 
 
 ## About
 
