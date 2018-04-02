@@ -33,7 +33,7 @@ class SignInPage extends Component {
   render() {
     const ErrorMessage = () => (
       <Message negative>
-        <Message.Header>Oh crap, something went wrong</Message.Header>
+        <Message.Header>Oh no, something went wrong</Message.Header>
         <p>{this.props.userState.errors.global}</p>
       </Message>
     )

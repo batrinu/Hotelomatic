@@ -61,5 +61,17 @@ Open a terminal and run:
 ```bash
 curl 'http://localhost:3030/users/' -H 'Content-Type: application/json' --data-binary '{ "email": "staff@hotelomatic.com", "password": "admin1234", "userType": "staff" }'
 ```
-After singing in with the staff account you will be redirected to the staff area page
+Open a browser and go to http://localhost:3000/signin
 
+
+
+
+## Future todos
+
+- [ ] Add backend form validation hook
+- [ ] Choose a DB (something other than NeDB)
+- [ ] Wrap '/checkins' service in Auth layer
+- [ ] Decide redux-form VS formik
+- [ ] Create action and reducer files for each component
+- [x] Fix LF ... CRLF errors
+- [x] Fix client eslint errors

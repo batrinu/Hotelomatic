@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import NavigationBar from './components/navigation/navigation-bar';
 import GuestsPage from './components/guests/guests-page';
 import SignInPage from './components/signin/sign-in-page';
-import {loginUserJWT} from './actions/user-actions';
+import { loginUserJWT } from './actions/user-actions';
 import StaffPage from './components/staff/staff-page';
 
 const HomePage = () => (
@@ -25,25 +25,31 @@ const HomePage = () => (
 const PrivateRoute = ({ component: Component, ...rest }, isSignedIn) => (
   <Route
     {...rest}
-    render={props => 
+    render={props =>
       isSignedIn ? (
         <Component {...props} />
       ) : (
-        <Redirect
-          to={{
-            pathname: "/signin",
-            state: { from: props.location }
-          }}
-        />
-      )
+          <Redirect
+            to={{
+              pathname: "/signin",
+              state: { from: props.location }
+            }}
+          />
+        )
     }
   />
 );
 
 class App extends Component {
-  componentWillMount(){
-    let jwt = localStorage.getItem('feathers-jwt')
-    this.props.loginUserJWT(jwt)
+  componentWillMount() {
+    if (window.localStorage) {
+      // localStorage can be used
+      let jwt = window.localStorage.getItem('feathers-jwt')
+      this.props.loginUserJWT(jwt)
+    } else {
+      // can't be used
+    }
+
   }
   render() {
     return (
@@ -52,10 +58,10 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/guests" component={GuestsPage} />
-          <PrivateRoute 
-            path="/staff" 
-            component={StaffPage} 
-            isSignedIn={this.props.userState.isSignedIn} 
+          <PrivateRoute
+            path="/staff"
+            component={StaffPage}
+            isSignedIn={this.props.userState.isSignedIn}
           />
           <Route path="/signin" component={SignInPage} />
         </Switch>
@@ -71,4 +77,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default withRouter(connect(mapStateToProps,{loginUserJWT})(App));
+export default withRouter(connect(mapStateToProps, { loginUserJWT })(App));
